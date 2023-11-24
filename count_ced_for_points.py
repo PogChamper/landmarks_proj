@@ -64,7 +64,7 @@ def count_ced(predicted_points, gt_points, path_crops):
                     w,h = cv2.imread('{}/{}'.format(path_crops,img_name).replace('.pts', '.png')).shape[:2]
                 
                 if (method_name=='onet') or (method_name=='chonet') or (method_name=='chonet'):
-                    normalization_factor = np.sqrt(3*h * w)
+                    normalization_factor = np.sqrt(h * w)
                 else:
                     normalization_factor = np.sqrt(h * w / 1.75*1.75)
                 
