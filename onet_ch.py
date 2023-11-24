@@ -99,22 +99,22 @@ class ONetCh(nn.Module):
             nn.SiLU(),
             nn.MaxPool2d(kernel_size=3, stride=2), # 126    # 62 #30
             nn.BatchNorm2d(32),
-            DropBlock2D(0.25, 32),
+            DropBlock2D(0.25, 5),
             nn.Conv2d(32, 64, kernel_size=3, stride=1),
             nn.SiLU(),
             nn.MaxPool2d(kernel_size=3, stride=2), # 61   # 29 #13
             nn.BatchNorm2d(64),
-            DropBlock2D(0.25, 64),
+            DropBlock2D(0.25, 5),
             nn.Conv2d(64, 128, kernel_size=3, stride=1),
             nn.SiLU(),
             nn.MaxPool2d(kernel_size=3, stride=2), # 29    #13 #5
             nn.BatchNorm2d(128),
-            DropBlock2D(0.25, 128),
+            DropBlock2D(0.25, 5),
             nn.Conv2d(128, 256, kernel_size=3, stride=1), 
             nn.SiLU(),
             nn.MaxPool2d(kernel_size=3, stride=2), # 13   # 5
             nn.BatchNorm2d(256),
-            DropBlock2D(0.25, 256),
+            DropBlock2D(0.25, 5),
             nn.Conv2d(256, 512, kernel_size=3, stride=1),
             nn.SiLU(),
             #nn.MaxPool2d(kernel_size=3, stride=2), # 13   # 5
@@ -123,7 +123,7 @@ class ONetCh(nn.Module):
             #nn.BatchNorm2d(512),
             nn.Conv2d(512, 512, kernel_size=2, stride=1),
             nn.SiLU(),
-            DropBlock2D(0.25, 512),
+            DropBlock2D(0.25, 5),
             #nn.Dropout(0.25) 
         )
         self.conv4 = nn.Conv2d(64,128,kernel_size=2,stride=1) 
