@@ -63,8 +63,8 @@ def count_ced(predicted_points, gt_points, path_crops):
                 else:
                     w,h = cv2.imread('{}/{}'.format(path_crops,img_name).replace('.pts', '.png')).shape[:2]
                 
-                if (method_name=='onet') or (method_name=='chonet'):
-                    normalization_factor = np.sqrt(h * w)
+                if (method_name=='onet') or (method_name=='chonet') or (method_name=='chonet'):
+                    normalization_factor = np.sqrt(3*h * w)
                 else:
                     normalization_factor = np.sqrt(h * w / 1.75*1.75)
                 
@@ -148,7 +148,7 @@ def main():
         under_thr_range = range(last_idx)
         cur_auc = count_ced_auc(err)[0]
 
-        plt.plot(err[under_thr_range], proportion[under_thr_range], label=method_name + ', auc={:1.3f}'.format(cur_auc),
+        plt.plot(err[under_thr_range], proportion[under_thr_range], label=method_name + ', auc={:1.4f}'.format(cur_auc),
              linestyle=line_styles[method_idx % len(line_styles)], linewidth=2.0)
     plt.title(f'{args.dataset}_test',fontsize=40)
     plt.legend(loc='right', prop={'size': 24})
